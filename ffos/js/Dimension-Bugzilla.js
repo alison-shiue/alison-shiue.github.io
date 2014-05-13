@@ -32,7 +32,7 @@ Dimension.addEdges(true,  Mozilla, [
                 ]},
                 {"name":"CanVerify", "partitions":[
                         {"name":"Resolved",
-                                "esfilter":{"term":{"bug_status":"resolved"}},
+                                "esfilter":{"term":{"bug_status":"resolved", , "resolution":"fixed", "resolution":"duplicate"}},
                                 "field":"resolution", "partitions":[
                                         {"name":"Fixed", "value":"fixed", "style":{}, "esfilter":{"term":{"resolution":"fixed"}}},
                                         {"name":"Duplicate", "value":"duplicate", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"duplicate"}}}
@@ -42,16 +42,16 @@ Dimension.addEdges(true,  Mozilla, [
                         }
                 ]},
 		{"name":"Closed", "partitions":[
-			//{"name":"Resolved",
-			//	"esfilter":{"term":{"bug_status":"resolved"}},
-			//	"field":"resolution", "partitions":[
-			//		{"name":"Invalid", "value":"invalid", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"invalid"}}},
-			//		{"name":"Won't Fix", "value":"wontfix", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"wontfix"}}},
-			//		{"name":"WorksForMe", "value":"worksforme", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"worksforme"}}}
-			//	],
-			//	"key":"value",
-			//	"value":"name"
-			//},
+			{"name":"Resolved",
+				"esfilter":{"term":{"bug_status":"resolved", "resolution":"invalid", "resolution":"wontfix", "resolution":"worksforme"}},
+				"field":"resolution", "partitions":[
+					{"name":"Invalid", "value":"invalid", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"invalid"}}},
+					{"name":"Won't Fix", "value":"wontfix", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"wontfix"}}},
+					{"name":"WorksForMe", "value":"worksforme", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"worksforme"}}}
+				],
+				"key":"value",
+				"value":"name"
+			},
 			{"name":"Verified", "esfilter":{"term":{"bug_status":"verified"}}},
 			{"name":"Closed", "esfilter":{"term":{"bug_status":"closed"}}}
 		]}
