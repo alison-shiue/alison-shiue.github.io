@@ -30,16 +30,16 @@ Dimension.addEdges(true,  Mozilla, [
                         }
                 ]},
 		{"name":"Closed", "partitions":[
-			{"name":"Resolved-x",
-				"esfilter":{"term":{"bug_status":"resolved"}},
-				"field":"resolution", "partitions":[
-					{"name":"Invalid", "value":"invalid", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"invalid"}}},
-					{"name":"Won't Fix", "value":"wontfix", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"wontfix"}}},
-					{"name":"WorksForMe", "value":"worksforme", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"worksforme"}}}
-				],
-				"key":"value",
-				"value":"name"
-			},
+			//{"name":"Resolved",
+			//	"esfilter":{"term":{"bug_status":"resolved"}},
+			//	"field":"resolution", "partitions":[
+			//		{"name":"Invalid", "value":"invalid", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"invalid"}}},
+			//		{"name":"Won't Fix", "value":"wontfix", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"wontfix"}}},
+			//		{"name":"WorksForMe", "value":"worksforme", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"worksforme"}}}
+			//	],
+			//	"key":"value",
+			//	"value":"name"
+			//},
 			{"name":"Verified", "esfilter":{"term":{"bug_status":"verified"}}},
 			{"name":"Closed", "esfilter":{"term":{"bug_status":"closed"}}}
 		]}
