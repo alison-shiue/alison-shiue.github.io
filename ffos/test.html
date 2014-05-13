@@ -297,7 +297,7 @@
 
 			if (specialBlockers.count==0) specialBlockers.project="CA";
 
-			var blockerHTML = showSummary("Blockers", GUI.state.team.getSelectedParts(), totals, specialBlockers, showBlocker);
+			var blockerHTML = showSummary("Verified Me", GUI.state.team.getSelectedParts(), totals, specialBlockers, showBlocker);
 			$("#totals").html(blockerHTML);
 
 			addProjectClickers(components);
