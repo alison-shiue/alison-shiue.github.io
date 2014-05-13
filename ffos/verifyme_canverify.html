@@ -4,7 +4,7 @@
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <HTML>
 <HEAD>
-	<title>FFOS Regressions</title>
+	<title>FFOS Can Verify Bugs</title>
 	<script type="text/javascript">function importScript(dep, func){if (func!==undefined) func();}</script>
 	<script type="text/javascript" src="js/Settings.js"></script>
 	<script type="text/javascript" src="js/rest/BugzillaClient.js"></script>
@@ -202,7 +202,7 @@
 				]
 			}));
 
-			var blockerHTML = showSummary("Can verify", GUI.state.team.getSelectedParts(), totals, undefined, showRegression);
+			var blockerHTML = showSummary("QA Verify", GUI.state.team.getSelectedParts(), totals, undefined, showRegression);
 			$("#totals").html(blockerHTML);
 
 			addProjectClickers(components);

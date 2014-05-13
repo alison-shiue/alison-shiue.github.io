@@ -30,7 +30,7 @@ Dimension.addEdges(true,  Mozilla, [
                         }
                 ]},
 		{"name":"Closed", "partitions":[
-			{"name":"Resolved",
+			{"name":"Resolved-x",
 				"esfilter":{"term":{"bug_status":"resolved"}},
 				"field":"resolution", "partitions":[
 					{"name":"Invalid", "value":"invalid", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"invalid"}}},
