@@ -144,9 +144,9 @@
 					"target_milestone"
 				],
 				"esfilter": {"and": [
-					Mozilla.B2G.Regressions.esfilter,
+					Mozilla.B2G.Verifyme.esfilter, //defined on Dimension-B2G.js
 					Mozilla.B2G.esfilter,
-					Mozilla.BugStatus.Closed.esfilter, //filter bug status(Dimension-Bugzilla.js)
+					Mozilla.BugStatus.Open.esfilter, //filter bug status(Dimension-Bugzilla.js)
 					Mozilla.CurrentRecords.esfilter,
 					GUI.getFilters("bugs")
 				]}
