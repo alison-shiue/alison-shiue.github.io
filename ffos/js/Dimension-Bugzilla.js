@@ -18,12 +18,21 @@ Dimension.addEdges(true,  Mozilla, [
 			{"name":"Reopened", "esfilter":{"term":{"bug_status":"reopened"}}},
 			{"name":"Other", "esfilter":{"not":{"terms":{"bug_status":["resolved", "verified", "closed"]}}}}
 		]},
+                {"name":"CanVerified", "partitions":[
+                        {"name":"Resolved",
+                                "esfilter":{"term":{"bug_status":"resolved"}},
+                                "field":"resolution", "partitions":[
+                                        {"name":"Fixed", "value":"fixed", "style":{}, "esfilter":{"term":{"resolution":"fixed"}}},
+                                        {"name":"Duplicate", "value":"duplicate", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"duplicate"}}}
+                                ],
+                                "key":"value",
+                                "value":"name"
+                        }
+                ]},
 		{"name":"Closed", "partitions":[
 			{"name":"Resolved",
 				"esfilter":{"term":{"bug_status":"resolved"}},
 				"field":"resolution", "partitions":[
-					{"name":"Fixed", "value":"fixed", "style":{}, "esfilter":{"term":{"resolution":"fixed"}}},
-					{"name":"Duplicate", "value":"duplicate", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"duplicate"}}},
 					{"name":"Invalid", "value":"invalid", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"invalid"}}},
 					{"name":"Won't Fix", "value":"wontfix", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"wontfix"}}},
 					{"name":"WorksForMe", "value":"worksforme", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"worksforme"}}}
