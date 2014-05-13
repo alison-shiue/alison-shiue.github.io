@@ -18,7 +18,7 @@ Dimension.addEdges(true,  Mozilla, [
 			{"name":"Reopened", "esfilter":{"term":{"bug_status":"reopened"}}},
 			{"name":"Other", "esfilter":{"not":{"terms":{"bug_status":["resolved", "verified", "closed"]}}}}
 		]},
-                {"name":"CanVerified", "partitions":[
+                {"name":"CanVerify", "partitions":[
                         {"name":"Resolved",
                                 "esfilter":{"term":{"bug_status":"resolved"}},
                                 "field":"resolution", "partitions":[
