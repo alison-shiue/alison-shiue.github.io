@@ -16,6 +16,7 @@ Dimension.addEdges(true, Mozilla, [
 		"edges": [
 			{"name": "Nominations", "index": "bugs", "esfilter": {"terms": {"cf_blocking_b2g": ["1.3?", "1.4?", "1.3t?", "1.5?", "2.0?"]}}},
 			{"name": "Blockers", "index": "bugs", "esfilter": {"terms": {"cf_blocking_b2g": ["1.3+", "1.4+", "1.3t+", "1.5+", "2.0+"]}}},
+			{"name": "Features", "index": "bugs", "esfilter": {"terms": {"cf_feature_b2g": ["2.0"]}}},
 			{"name": "Regressions", "index": "bugs", "esfilter": {"term": {"keywords": "regression"}}},
                         {"name": "Verifyme", "index": "bugs", "esfilter": {"term": {"keywords": "verifyme"}}},
 			{"name": "Unassigned", "index": "bugs", "esfilter": {"term": {"assigned_to": "nobody@mozilla.org"}}},
