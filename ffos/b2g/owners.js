@@ -4,82 +4,84 @@
 //Please keep the owner names consistent with phonebook names
 
 var OWNERS = {
-  "AudioChannel": "Eric Chou", // Firefox OS
+  // "AudioChannel": "Eric Chou", // Firefox OS
   // "BetaTriage": "?", // Firefox OS
-  "Bluetooth": "Eric Chou", // Firefox OS
-  "Build Config": "Dylan Oliver", // Core
-  "Canvas: 2D": "Milan Sreckovic (Benoit Jacob, Jeff Muizelaar)",
-  "Canvas: WebGL": "Milan Sreckovic (Benoit Jacob, Jeff Gilbert)",
-  "CSS Parsing and Computation": "Jet Villegas",
+  "Storage": "Alison Shiue",
+  "Bluetooth": "Alison Shiue", // Firefox OS
+  "Bluetooth PTS": "Eric Chang, Alison Shiue",
+  // "Build Config": "Dylan Oliver", // Core
+  // "Canvas: 2D": "Milan Sreckovic (Benoit Jacob, Jeff Muizelaar)",
+  // "Canvas: WebGL": "Milan Sreckovic (Benoit Jacob, Jeff Gilbert)",
+  // "CSS Parsing and Computation": "Jet Villegas",
   // "Emulator": "?", // Firefox OS
   // "FxA": "?", // Firefox OS
-  "DOM: Apps": "Fabrice Desré",
-  "DOM: Core & HTML": "Andrew Overholt (Johnny Stenback)", // DOM
-  "DOM": "Andrew Overholt (2nd: Johnny Stenback)", // DOM
-  "DOM: Contacts": "David Scravaglieri (Anthony Ricaud)", // DOM
-  "DOM: Device Interfaces": "Andrew Overholt (Johnny Stenback)", // DOM
-  "DOM: Events": "Andrew Overholt (Johnny Stenback)",
-  "Gaia": "David Scravaglieri (Anthony Ricaud)",
-  "Gaia::Bluetooth File Transfer": "Tim Guan-tin Chien",
-  "Gaia::Browser": "Gregor Wagner (Ben Francis)",
-  "Gaia::Build": "Tim Guan-tin Chien",
-  "Gaia::Calendar": "Dylan Oliver (Gareth Aye)",
-  "Gaia::Camera": "Hema Koka (David Flanagan)",
-  "Gaia::Clock": "Dylan Oliver (Marcus Cavanaugh)",
-  "Gaia::Contacts": "David Scravaglieri (Anthony Ricaud)",
-  "Gaia::Cost Control": "David Scravaglieri (Anthony Ricaud)",
-  "Gaia::Dialer": "David Scravaglieri (Anthony Ricaud)",
-  "Gaia::E-Mail": "Dylan Oliver (Andrew Sutherland)",
-  "Gaia::Everything.me": "Gregor Wagner (Michael Henretty)",
-  "Gaia::First Time Experience": "Gregor Wagner (Michael Henretty)",
-  "Gaia::FMRadio": "Hema Koka (David Flanagan)",
-  "Gaia::Gallery": "Hema Koka (David Flanagan)",
+  // "DOM: Apps": "Fabrice Desré",
+  // "DOM: Core & HTML": "Andrew Overholt (Johnny Stenback)", // DOM
+  // "DOM": "Andrew Overholt (2nd: Johnny Stenback)", // DOM
+  // "DOM: Contacts": "David Scravaglieri (Anthony Ricaud)", // DOM
+  // "DOM: Device Interfaces": "Andrew Overholt (Johnny Stenback)", // DOM
+  // "DOM: Events": "Andrew Overholt (Johnny Stenback)",
+  "Gaia": "",
+  "Gaia::Bluetooth File Transfer": "Alison Shiue",
+  "Gaia::Browser": "",
+  "Gaia::Build": "",
+  "Gaia::Calendar": "Edward Chen",
+  "Gaia::Camera": "",
+  "Gaia::Clock": "Edward Chen",
+  "Gaia::Contacts": "Eric Chang",
+  "Gaia::Cost Control": "",
+  "Gaia::Dialer": "Eric Chang",
+  "Gaia::E-Mail": "Edward Chen",
+  "Gaia::Everything.me": "",
+  "Gaia::First Time Experience": "",
+  "Gaia::FMRadio": "",
+  "Gaia::Gallery": "",
   // "Gaia::GithubBot": "?",ven
-  "Gaia::Homescreen": "Gregor Wagner (Kevin Grandon)",
-  "Gaia::Keyboard": "Tim Guan-tin Chien",
-  "Gaia::Music": "Hema Koka (David Flanagan)",
-  "Gaia::Notes": "Dylan Oliver",
+  "Gaia::Homescreen": "",
+  "Gaia::Keyboard": "Gerry Chang",
+  "Gaia::Music": "",
+  "Gaia::Notes": "",
   // "Gaia::PDF Viewer": "?",
   // "Gaia::PerformanceTest": "?",
-  "Gaia::Ringtones": "Hema Koka (David Flanagan)",
-  "Gaia::Search": "Gregor Wagner (Kevin Grandon)",
-  "Gaia::Settings": "Tim Guan-tin Chien",
-  "Gaia::SMS": "David Scravaglieri (Anthony Ricaud)",
-  "Gaia::System": "Gregor Wagner (Michael Henretty)", //  Tim relies on Gregor to actively throwing bugs over.
-  "Gaia::System::Browser Chrome": "Gregor Wagner (Ben Francis)",
-  "Gaia::System::Input Mgmt": "Tim Guan-tin Chien",
-  "Gaia::System::Lockscreen": "Tim Guan-tin Chien",
-  "Gaia::System::Window Mgmt": "Tim Guan-tin Chien",
+  "Gaia::Ringtones": "",
+  "Gaia::Search": "",
+  "Gaia::Settings": "*",
+  "Gaia::SMS": "Alison Shiue",
+  "Gaia::System": "", //  Tim relies on Gregor to actively throwing bugs over.
+  "Gaia::System::Browser Chrome": "",
+  "Gaia::System::Input Mgmt": "",
+  "Gaia::System::Lockscreen": "Gerry Chang",
+  "Gaia::System::Window Mgmt": "",
   // "Gaia::TestAgent": "?",
   // "Gaia::UI Tests": "?",
-  "Gaia::Video": "Hema Koka (David Flanagan)",
+  "Gaia::Video": "",
   // "Gaia::Wallpaper": "?",
-  "Gaia::Wappush": "David Scravaglieri (Anthony Ricaud)",
+  "Gaia::Wappush": "",
   // "General": "?", // Firefox OS
-  "GonkIntegration": "Thomas Tsai", // Firefox OS
-  "General Automation": "Jonathan Griffin", // Release Engineering
-  "Geolocation": "Doug Turner", // Core
-  "Graphics": "Milan Sreckovic (Jeff Muizelaar, Benoit Girard)", // Core
-  "Graphics: Layers": "Milan Sreckovic (Bas Schouten, Benoit Girard)", // Core
+  "GonkIntegration": "", // Firefox OS
+  "General Automation": "", // Release Engineering
+  "Geolocation": "", // Core
+  "Graphics": "", // Core
+  "Graphics: Layers": "", // Core
   // "Hardware": "?", // Firefox OS
-  "Hardware Abstraction Layer (HAL)": "Dave Hylands", // Core
-  "ImageLib": "Milan Sreckovic (Jeff Muizelaar, Seth Fowler)",
-  "IPC": "Andrew Overholt (Johnny Stenback)",
-  "JavaScript Engine": "Naveed Ihsanullah", // Core
-  "JavaScript: GC": "Naveed Ihsanullah", // Core
-  "Layout": "Jet Villegas", // Core
-  "MFBT": "Naveed Ihsanullah",
-  "Networking": "Jason Duell", // Core
-  "NFC": "Ken Chang", // Firefox OS
-  "Panning and Zooming": "Milan Sreckovic (Kartikaya Gupta, Botond Ballo)", // Core
-  "Performance": "Mike Lee (Ben Kelly, Mason Chang)", // Firefox OS
-  "Runtime": "Gregor Wagner (Fabrice Desré)", // Firefox OS
+  "Hardware Abstraction Layer (HAL)": "", // Core
+  "ImageLib": "",
+  "IPC": "",
+  "JavaScript Engine": "", // Core
+  "JavaScript: GC": "", // Core
+  "Layout": "", // Core
+  "MFBT": "",
+  "Networking": "Gerry Chang", // Core
+  "NFC": "Alison Shiue", // Firefox OS
+  "Panning and Zooming": "", // Core
+  "Performance": "", // Firefox OS
+  "Runtime": "", // Firefox OS
   // "Simulator": "?", // Firefox OS
-  "RIL": "Ken Chang", // Firefox OS
-  "Video/Audio": "Jet Villegas", // Core
-  "Video/Audio: Recording": "CJ Ku", // Core
-  "Vendcom": "Steven Yang", // Firefox OS
-  "Widget: Gonk": "Mike Wu",
-  "Wifi": "Ken Chang", // Firefox OS
+  "RIL": "Eric Chang", // Firefox OS
+  "Video/Audio": "", // Core
+  "Video/Audio: Recording": "", // Core
+  "Vendcom": "", // Firefox OS
+  "Widget: Gonk": "",
+  "Wifi": "Gerry Chang", // Firefox OS
   // "WMF": "?" // Firefox OS
 };

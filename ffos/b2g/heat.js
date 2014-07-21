@@ -49,18 +49,92 @@ function showComponent(detail, showTYPE) {
 		'<div class="componentowner">{{owner}}</div>' +
 		'{{projectDetail}}' +
 		'</div>';
-
 	var component = Map.copy(detail[0]);
 	var meta =  getComponentDetails(component.component);
 	component.component = meta.name;
 	component.manager = meta.owner.manager;
 	component.owner = meta.owner.name=="" ? "": "(" + meta.owner.name + ")";
 	component.projectDetail = detail.map(function (project, i) {
-		if (project.count > 0) {
-			return showTYPE(project);
-		}//endif
-	}).join("");
-	return TEMPLATE.replaceVars(component)
+	if (project.count > 0) {
+		return showTYPE(project);
+	}//endif
+    }).join("");        
+    return TEMPLATE.replaceVars(component)
+}//function
+
+function showQAComponent(detail, showTYPE) {
+        var TEMPLATE = '<div class="blocker">' +
+                '<div class="component">{{component}}</div>' +
+                '<div class="componentmanager">{{manager}}</div>' +
+                '<div class="componentowner">{{owner}}</div>' +
+                '{{projectDetail}}' +
+                '</div>';
+        var component = Map.copy(detail[0]);
+        var compName = component.component.match(/\[com=(.*?)\]/);
+        if (compName != null) {
+            component.component = compName[1];
+            var qa = getComponentDetails(component.component);
+            component.manager = qa.owner.manager;
+            component.owner = qa.owner.name=="" ? "": "(" + qa.owner.name + ")";
+            component.projectDetail = detail.map(function (project, i) {
+                if (project.count > 0) {
+                        return showTYPE(project);
+                }//endif
+            }).join("");
+        
+            return TEMPLATE.replaceVars(component)
+        }
+}//function
+
+// SHOW SUMMARY COUNT
+function showQASummary(type, team, detail, specialBugs, showTYPE) {
+
+        var TEMPLATE = '<h3 style="padding: 20px 0 0 10px;vertical-align: top; display:inline-block">{{name}} {{type}}</h3><div class="blocker">' +
+                '{{projectDetail}}' +
+                '<div style="display:inline-block;width:50px">&nbsp;</div>' +
+                '{{total}}' +
+                '<div style="display:inline-block;width:50px">&nbsp;</div>' +
+                '{{specialDetail}}' +
+                '</div>';
+        var total = aMath.sum.apply(undefined, detail.cube.select("count"));
+        var component = {};
+
+        if (team.length==0){
+                component.name = "FFOS"
+        }else{
+                component.name = team.map(function(t){return t.name;}).join(", ")
+        }//endif
+
+        var numSummary=0;
+        component.projectDetail = detail.cube.map(function (project, i) {
+                project.project = detail.edges[0].domain.partitions[i].name;
+                if (project.count > 0) {
+                        numSummary++;
+                        return showTYPE(project);
+                }//endif
+        }).join("");
+        if (numSummary<2) component.projectDetail="";
+
+        if (specialBugs){
+                component.specialDetail = showTYPE(specialBugs);
+        }else{
+                component.specialDetail = "";
+        }//endif
+
+
+        component.total=showTYPE({
+                "project":"Total",
+                "count":aMath.sum.apply(undefined, detail.cube.select("count")),
+                "unassignedCount":aMath.sum.apply(undefined, detail.cube.select("unassignedCount")),
+                "age":aMath.max.apply(undefined, detail.cube.select("age")),
+                "bugs":detail.from.list.select("bug_id"),
+                "unassignedBugs": detail.from.list.filter(Mozilla.B2G.Unassigned.esfilter).select("bug_id"),
+                "additionalClass": "project-summary"
+
+        });
+        component.type=type;
+
+        return TEMPLATE.replaceVars(component)
 }//function
 
 // SHOW SUMMARY COUNT
@@ -73,7 +147,6 @@ function showSummary(type, team, detail, specialBugs, showTYPE) {
 		'<div style="display:inline-block;width:50px">&nbsp;</div>' +
 		'{{specialDetail}}' +
 		'</div>';
-
 	var total = aMath.sum.apply(undefined, detail.cube.select("count"));
 	var component = {};
 

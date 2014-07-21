@@ -34,7 +34,7 @@ TeamFilter.newInstance=function(field_name){
 			]
 		}))).list;
 
-		var others={
+		/*var others={
 			"email":"other@mozilla.com",
 			"name":"Other MoCo",
 			"id":"mail=other@mozilla.com,"
@@ -47,11 +47,11 @@ TeamFilter.newInstance=function(field_name){
 			"id":"mail=nobody@mozilla.org,"
 		});
 
-		people.push({
+		/*people.push({
 			"email":"community@mozilla.org",
 			"name":"Community",
 			"id":"mail=community@mozilla.org,"
-		});
+		});*/
 
 
 
@@ -86,7 +86,7 @@ TeamFilter.newInstance=function(field_name){
 			"parent_field":"manager"
 		});
 
-		if (others.children){
+		/*if (others.children){
 			others.children.map(function(v, i){
 				//PULL OUT THE TOP LEVEL 'PEOPLE' WITH CHILDREN
 				if (v.children && v.manager=="other@mozilla.com"){
@@ -97,7 +97,7 @@ TeamFilter.newInstance=function(field_name){
 				return v;
 			});
 			others.children.subtract(hier);
-		}//endif
+		}//endif*/
 		
 		self.injectHTML(hier);
 
