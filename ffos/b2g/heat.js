@@ -71,19 +71,16 @@ function showQAComponent(detail, showTYPE) {
                 '</div>';
         var component = Map.copy(detail[0]);
         var compName = component.component.match(/\[com=(.*?)\]/);
-        if (compName != null) {
-            component.component = compName[1];
-            var qa = getComponentDetails(component.component);
-            component.manager = qa.owner.manager;
-            component.owner = qa.owner.name=="" ? "": "(" + qa.owner.name + ")";
-            component.projectDetail = detail.map(function (project, i) {
-                if (project.count > 0) {
-                        return showTYPE(project);
-                }//endif
-            }).join("");
-        
-            return TEMPLATE.replaceVars(component)
-        }
+        component.component = compName[1];
+        var qa = getComponentDetails(component.component);
+        component.manager = qa.owner.manager;
+        component.owner = qa.owner.name=="" ? "": "(" + qa.owner.name + ")";
+        component.projectDetail = detail.map(function (project, i) {
+            if (project.count > 0) {
+                   return showTYPE(project);
+            }//endif
+        }).join("");
+        return TEMPLATE.replaceVars(component)
 }//function
 
 // SHOW SUMMARY COUNT

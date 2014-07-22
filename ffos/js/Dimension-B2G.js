@@ -21,8 +21,8 @@ Dimension.addEdges(true, Mozilla, [
 			{"name": "Features", "index": "bugs", "esfilter": {"terms": {"cf_feature_b2g": ["2.0", "2.1"]}}},
 			{"name": "Regressions", "index": "bugs", "esfilter": {"term": {"keywords": "regression"}}},
                         {"name": "Verifyme", "index": "bugs", "esfilter": {"term": {"keywords": "verifyme"}}},
-                        {"name": "HasQAWhiteboard", "index": "bugs", "esfilter": {"exists": {"field":"cf_qa_whiteboard"}}},
-                        //{"name": "HasQAWhiteboard", "index": "bugs", "esfilter": {"term": {"cf_qa_whiteboard":"[COM=(.*?)]"}}},
+                        //{"name": "HasQAWhiteboard", "index": "bugs", "esfilter": {"exists": {"field":"cf_qa_whiteboard"}}},
+                        {"name": "HasQAWhiteboard", "index": "bugs", "esfilter": {"regexp": {"cf_qa_whiteboard":".*COM=.*"}}},
 			{"name": "Unassigned", "index": "bugs", "esfilter": {"term": {"assigned_to": "nobody@mozilla.org"}}},
 			{"name": "Responsibility", "index": "bugs", "isFacet": true, "partitions": [
 				{"name":"FFOS Team", "esfilter":{"not":{"terms":{"status_whiteboard.tokenized":["NPOTB", "POVB"]}}}},
