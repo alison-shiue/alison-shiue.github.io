@@ -358,6 +358,33 @@ Dimension.addEdges(true, Mozilla, [
 				]
 			},
 
+			{"name": "ProjectFeature", "index": "bugs", "isFacet": true,
+                                "partitions": [
+                                        //https://wiki.mozilla.org/Release_Management/B2G_Landing
+                                        {"name": "2.0",
+                                                "dateMarks":[
+                                                        {"FC":"Jun 9, 2014"},
+                                                        {"SC":"Jul 21, 2014"},
+                                                        {"CF":"Sep 01, 2014"}
+                                                ],
+                                                "style": {"color": "#1f77b4"},
+                                                "esfilter": {"terms": {"cf_feature_b2g": ["2.0"]}}
+                                        },
+                                        {"name": "2.1",
+                                                "dateMarks":[
+                                                        {"FC":"Sep 01, 2014"},
+                                                        {"SC":"Oct 13, 2014"},
+                                                        {"CF":"Nov 21, 2014"}
+                                                ],
+                                                "style": {"color": "#1f77b4"},
+                                                "esfilter": {"terms": {"cf_feature_b2g": ["2.1"]}}
+                                        },
+                                        {"name": "Other", "style": {"color": "#9467bd"}, "esfilter": {"and": [
+                                                {"not": {"terms": {"cf_blocking_b2g": ["2.0", "2.1"]}}}
+                                        ]}}
+                                ]
+                        },
+
 			{"name": "FinalState", "index": "bugs", "isFacet": true,
 				"partitions": [
 					{"name": "1.3",
