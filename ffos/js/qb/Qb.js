@@ -145,6 +145,11 @@ function* calc2Tree(query){
 	var where = Qb.where.compile(query.where, sourceColumns, edges);
 	var numWhereFalse=0;
 
+	//replace cf_qa_whiteboard  by real QA component name
+	From: for(var i = 0; i < from.length; i++){
+		var compName = from[i].cf_qa_whiteboard.match(/\[com=(.*?)\]/);
+		from[i].cf_qa_whiteboard = compName[1];
+	}
 
 	var tree = {};
 	query.tree = tree;
@@ -156,7 +161,6 @@ function* calc2Tree(query){
 		var results = [[]];
 		for(var f = 0; f < edges.length; f++){
 			var edge = edges[f];
-
 
 			if (edge.test || edge.range){
 				//MULTIPLE MATCHES EXIST
@@ -205,7 +209,7 @@ function* calc2Tree(query){
 				}//endif
 			}//endif
 		}//for
-
+		
 
 		for(var r = results.length; r--;){
 			var pass = where(row, results[r]);
@@ -312,6 +316,7 @@ function* calc2Cube(query){
 
 	//ASSIGN dataIndex TO ALL PARTITIONS
 	var edges = query.edges;
+	
 	for(var f = 0; f < edges.length; f++){
 		if (edges[f].domain.type=="default"){
 			edges[f].domain.partitions.sort(edges[f].domain.compare);
@@ -325,11 +330,9 @@ function* calc2Cube(query){
 
 	//MAKE THE EMPTY DATA GRID
 	query.cube = Qb.cube.newInstance(edges, 0, query.select);
-
 	Tree2Cube(query, query.cube, query.tree, 0);
 
 	Qb.analytic.run(query);
-
 
 	Map.copy(Qb.query.prototype, query);
 
@@ -1136,8 +1139,6 @@ Qb.drill=function(query, parts){
 		return output;
 	};
 
-
-
 	Qb.query={};
 	Qb.query.prototype={};
 	//GET THE SUB-Qb THE HAD name=value
@@ -1163,10 +1164,10 @@ Qb.drill=function(query, parts){
 			//THIS ONLY INDEXES INTO A SINGLE DIMENSION
 			Log.error("can not handle more than one dimension at this time");
 
-		var edge=this.getEdge(name);
+		var edge=this.getEdge(name); 
 		return this.cube[edge.domain.getPartByKey(value).dataIndex];
 	};
-
+	
 	Qb.query.prototype.indexOf=function(name, value){
 		var edge=this.getEdge(name);
 		return edge.domain.getPartByKey(value).dataIndex;
