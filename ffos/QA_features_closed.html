@@ -156,7 +156,6 @@
 				]}
 			}));
 			Log.actionDone(a);
-                        console.log(allDetails);
 
 			var components = yield(Q({
 				"from": allDetails,
@@ -173,6 +172,7 @@
 					{"name": "project", "domain": Mozilla.B2G.ProjectFeature.getDomain()}
 				]
 			}));
+
 			$("#blockers").html("");
 			components.cube.forall(function (component, i) {
 				var total = aMath.sum.apply(undefined, component.select("count"));
@@ -183,7 +183,7 @@
 						project.total = total;
 						project.additionalClass = "";
 					});
-					var blockerHTML = showQAComponent(component, showRegression); //showQAComponent defined on b2g/heat.js
+					var blockerHTML = showComponent(component, showRegression); //showQAComponent defined on b2g/heat.js
 					$("#blockers").append(blockerHTML);
 				}//endif
 			});

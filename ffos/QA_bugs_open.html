@@ -169,20 +169,14 @@
 				"edges": [
 					"cf_qa_whiteboard",
 					//"component",
-					//"esfilter":{"term":{"cf_qa_whiteboard":"[COM=NFC]"}},
-					{"name": "project", "domain": Mozilla.B2G.Project.getDomain()}
+					{"name": "project", "domain": Mozilla.B2G.Project.getDomain()},
 				]
 			}));
 
 			$("#blockers").html("");
-			console.log(components);
 			//var test;
 			components.cube.forall(function (component, i) {
 				var total = aMath.sum.apply(undefined, component.select("count"));
-				console.log(component.select("count"));
-				/*if (total == 1) {
-					test.add(component);	
-				}*/
 				if (total > 0) {
 					component.forall(function (project, j) {
 						project.component = components.edges[0].domain.partitions[i].name;;
@@ -190,7 +184,7 @@
 						project.total = total;
 						project.additionalClass = "";
 					});
-					var blockerHTML = showQAComponent(component, showRegression); //showQAComponent defined on b2g/heat.js
+					var blockerHTML = showComponent(component, showRegression); //showQAComponent defined on b2g/heat.js
 					$("#blockers").append(blockerHTML);
 				}//endif
 			});
