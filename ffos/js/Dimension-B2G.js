@@ -10,7 +10,7 @@ if (!Mozilla) var Mozilla = {"name": "Mozilla", "edges": []};
 Dimension.addEdges(true, Mozilla, [
 	{"name": "B2G",
 		"esfilter": {"or": [
-			{"terms": {"cf_blocking_b2g": ["1.3+", "1.4+", "1.3t+", "1.5+", "1.3?", "1.4?", "1.3t?", "1.5?", "2.0+", "2.0?", "2.1+", "2.1?"]}},
+			{"terms": {"cf_blocking_b2g": ["1.3+", "1.4+", "1.3t+", "1.5+", "1.3?", "1.4?", "1.3t?", "1.5?", "2.0+", "2.0?", "2.1+", "2.1?", "backlog"]}},
 			{"term": {"product": "core"}},
 			{"term": {"product": "firefox os"}}
 		]},
@@ -352,8 +352,13 @@ Dimension.addEdges(true, Mozilla, [
                                                 "style": {"color": "#1f77b4"},
                                                 "esfilter": {"terms": {"cf_blocking_b2g": ["2.1+", "2.1?"]}}
                                         },
-					{"name": "Other", "style": {"color": "#9467bd"}, "esfilter": {"and": [
-						{"not": {"terms": {"cf_blocking_b2g": ["1.3+", "1.4+", "1.3t+", "1.5+", "1.3?", "1.4?", "1.3t?", "1.5?", "2.0+", "2.0?", "2.1+", "2.1?"]}}}
+					{"name": "Backlog", 
+                                                "style": {"color": "#9467bd"}, 
+                                                "esfilter": {"term": {"cf_blocking_b2g": "backlog"}}
+                                        },
+					{"name": "Other", 
+						"style": {"color": "#9467bd"}, 
+						"esfilter": {"and": [{"not": {"terms": {"cf_blocking_b2g": ["1.3+", "1.4+", "1.3t+", "1.5+", "1.3?", "1.4?", "1.3t?", "1.5?", "2.0+", "2.0?", "2.1+", "2.1?", "backlog"]}}}
 					]}}
 				]
 			},
