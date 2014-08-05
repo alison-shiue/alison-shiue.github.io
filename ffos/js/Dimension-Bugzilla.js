@@ -18,9 +18,21 @@ Dimension.addEdges(true,  Mozilla, [
 			{"name":"Reopened", "esfilter":{"term":{"bug_status":"reopened"}}},
 			{"name":"Other", "esfilter":{"not":{"terms":{"bug_status":["resolved", "verified", "closed"]}}}}
 		]},
+		/*
 		{"name":"CanVerify", "partitions":[
                         {"name":"Resolved",
                                 "esfilter":{"term":{"bug_status":"resolved", "resolution":"fixed", "resolution":"duplicate"}},
+                                "field":"resolution", "partitions":[
+                                        {"name":"Fixed", "value":"fixed", "style":{}, "esfilter":{"term":{"resolution":"fixed"}}},
+                                        {"name":"Duplicate", "value":"duplicate", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"duplicate"}}}
+                                ],
+                                "key":"value",
+                                "value":"name"
+                        }
+                ]},*/
+		{"name":"CanVerify", "partitions":[
+                        {"name":"Resolved",
+                                "esfilter":{"term":{"bug_status":"resolved"}},
                                 "field":"resolution", "partitions":[
                                         {"name":"Fixed", "value":"fixed", "style":{}, "esfilter":{"term":{"resolution":"fixed"}}},
                                         {"name":"Duplicate", "value":"duplicate", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"duplicate"}}}
