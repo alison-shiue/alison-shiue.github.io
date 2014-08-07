@@ -17,22 +17,15 @@ Dimension.addEdges(true,  Mozilla, [
 			{"name":"Unconfirmed", "esfilter":{"term":{"bug_status":"unconfirmed"}}},
 			{"name":"Reopened", "esfilter":{"term":{"bug_status":"reopened"}}},
 			{"name":"Other", "esfilter":{"not":{"terms":{"bug_status":["resolved", "verified", "closed"]}}}}
-		]},
-		/*
+		]},	
 		{"name":"CanVerify", "partitions":[
                         {"name":"Resolved",
-                                "esfilter":{"term":{"bug_status":"resolved", "resolution":"fixed", "resolution":"duplicate"}},
-                                "field":"resolution", "partitions":[
-                                        {"name":"Fixed", "value":"fixed", "style":{}, "esfilter":{"term":{"resolution":"fixed"}}},
-                                        {"name":"Duplicate", "value":"duplicate", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"duplicate"}}}
-                                ],
-                                "key":"value",
-                                "value":"name"
-                        }
-                ]},*/
-		{"name":"CanVerify", "partitions":[
-                        {"name":"Resolved",
-                                "esfilter":{"term":{"bug_status":"resolved"}},
+                                "esfilter":{"and":[
+					{"term":{"bug_status":"resolved"}},
+					{"not":{"term":{"resolution":"invalid"}}},
+					{"not":{"term":{"resolution":"wontfix"}}},
+					{"not":{"term":{"resolution":"worksforme"}}}
+				]},
                                 "field":"resolution", "partitions":[
                                         {"name":"Fixed", "value":"fixed", "style":{}, "esfilter":{"term":{"resolution":"fixed"}}},
                                         {"name":"Duplicate", "value":"duplicate", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"duplicate"}}}
@@ -43,7 +36,11 @@ Dimension.addEdges(true,  Mozilla, [
                 ]},
 		{"name":"Closed", "partitions":[
 			{"name":"Resolved",
-				"esfilter":{"term":{"bug_status":"resolved", "resolution":"invalid", "resolution":"wontfix", "resolution":"worksforme"}},
+				"esfilter":{ "and":[
+					{"term":{"bug_status":"resolved"}},
+					{"not":{"term":{"resolution":"fixed"}}},
+                                        {"not":{"term":{"resolution":"duplicate"}}}
+				]},
 				"field":"resolution", "partitions":[
 					{"name":"Invalid", "value":"invalid", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"invalid"}}},
 					{"name":"Won't Fix", "value":"wontfix", "style":{"visibility":"hidden"}, "esfilter":{"term":{"resolution":"wontfix"}}},
