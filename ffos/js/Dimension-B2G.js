@@ -10,15 +10,15 @@ if (!Mozilla) var Mozilla = {"name": "Mozilla", "edges": []};
 Dimension.addEdges(true, Mozilla, [
 	{"name": "B2G",
 		"esfilter": {"or": [
-			{"terms": {"cf_blocking_b2g": ["1.3+", "1.4+", "1.3t+", "1.5+", "1.3?", "1.4?", "1.3t?", "1.5?", "2.0+", "2.0?", "2.1+", "2.1?", "backlog"]}},
+			{"terms": {"cf_blocking_b2g": ["1.3+", "1.4+", "1.3t+", "1.5+", "1.3?", "1.4?", "1.3t?", "1.5?", "2.0+", "2.0?", "2.1+", "2.1?", "2.2+", "2.2?", "backlog"]}},
 			{"term": {"product": "core"}},
 			{"term": {"product": "firefox os"}}
 		]},
 		"edges": [
-			{"name": "Nominations", "index": "bugs", "esfilter": {"terms": {"cf_blocking_b2g": ["1.3?", "1.4?", "1.3t?", "1.5?", "2.0?", "2.1?"]}}},
-			{"name": "Blockers", "index": "bugs", "esfilter": {"terms": {"cf_blocking_b2g": ["1.3+", "1.4+", "1.3t+", "1.5+", "2.0+", "2.1+"]}}},
-			{"name": "Bugs", "index": "bugs", "esfilter": {"not": {"terms": {"cf_feature_b2g": ["2.0", "2.1"]}}}},
-			{"name": "Features", "index": "bugs", "esfilter": {"terms": {"cf_feature_b2g": ["2.0", "2.1"]}}},
+			{"name": "Nominations", "index": "bugs", "esfilter": {"terms": {"cf_blocking_b2g": ["1.3?", "1.4?", "1.3t?", "1.5?", "2.0?", "2.1?", "2.2?"]}}},
+			{"name": "Blockers", "index": "bugs", "esfilter": {"terms": {"cf_blocking_b2g": ["1.3+", "1.4+", "1.3t+", "1.5+", "2.0+", "2.1+", "2.2+"]}}},
+			{"name": "Bugs", "index": "bugs", "esfilter": {"not": {"terms": {"cf_feature_b2g": ["2.0", "2.1", "2.2"]}}}},
+			{"name": "Features", "index": "bugs", "esfilter": {"terms": {"cf_feature_b2g": ["2.0", "2.1", "2.2"]}}},
 			{"name": "Regressions", "index": "bugs", "esfilter": {"term": {"keywords": "regression"}}},
                         {"name": "Verifyme", "index": "bugs", "esfilter": {"term": {"keywords": "verifyme"}}},
                         //{"name": "HasQAWhiteboard", "index": "bugs", "esfilter": {"exists": {"field":"cf_qa_whiteboard"}}},
@@ -36,11 +36,11 @@ Dimension.addEdges(true, Mozilla, [
 			{"name": "State", "index": "bugs", "isFacet": true,
 				"partitions": [
 					{"name": "Nominated", "esfilter": {"and": [
-						{"terms": {"cf_blocking_b2g": ["1.3?", "1.4?", "1.3t?", "1.5?", "2.0?", "2.1?"]}},
+						{"terms": {"cf_blocking_b2g": ["1.3?", "1.4?", "1.3t?", "1.5?", "2.0?", "2.1?", "2.2?"]}},
 						{"not": {"term": {"keywords": "regression"}}}
 					]}},
 					{"name": "Blocker", "esfilter": {"and": [
-						{"terms": {"cf_blocking_b2g": ["1.3+", "1.4+", "1.3t+", "1.5+", "2.0+", "2.1+"]}},
+						{"terms": {"cf_blocking_b2g": ["1.3+", "1.4+", "1.3t+", "1.5+", "2.0+", "2.1+", "2.2"]}},
 						{"not": {"term": {"keywords": "regression"}}}
 					]}},
 					{"name": "Regression", "esfilter": {"term": {"keywords": "regression"}}}
@@ -352,13 +352,22 @@ Dimension.addEdges(true, Mozilla, [
                                                 "style": {"color": "#1f77b4"},
                                                 "esfilter": {"terms": {"cf_blocking_b2g": ["2.1+", "2.1?"]}}
                                         },
+					{"name": "2.2",
+                                                "dateMarks":[
+                                                        {"FC":"Nov 21, 2014"},//??
+                                                        {"SC":"Dec 13, 2014"},//??
+                                                        {"CF":"Jan 21, 2015"}//??
+                                                ],
+                                                "style": {"color": "#1f77b4"},
+                                                "esfilter": {"terms": {"cf_blocking_b2g": ["2.2+", "2.2?"]}}
+                                        },
 					{"name": "Backlog", 
                                                 "style": {"color": "#9467bd"}, 
                                                 "esfilter": {"term": {"cf_blocking_b2g": "backlog"}}
                                         },
 					{"name": "Other", 
 						"style": {"color": "#9467bd"}, 
-						"esfilter": {"and": [{"not": {"terms": {"cf_blocking_b2g": ["1.3+", "1.4+", "1.3t+", "1.5+", "1.3?", "1.4?", "1.3t?", "1.5?", "2.0+", "2.0?", "2.1+", "2.1?", "backlog"]}}}
+						"esfilter": {"and": [{"not": {"terms": {"cf_blocking_b2g": ["1.3+", "1.4+", "1.3t+", "1.5+", "1.3?", "1.4?", "1.3t?", "1.5?", "2.0+", "2.0?", "2.1+", "2.1?", "2.2+", "2.2?", "backlog"]}}}
 					]}}
 				]
 			},
@@ -384,8 +393,17 @@ Dimension.addEdges(true, Mozilla, [
                                                 "style": {"color": "#1f77b4"},
                                                 "esfilter": {"terms": {"cf_feature_b2g": ["2.1"]}}
                                         },
+					{"name": "2.2",
+                                                "dateMarks":[
+                                                        {"FC":"Nov 21, 2014"},//?
+                                                        {"SC":"Dec 13, 2014"},//?
+                                                        {"CF":"Jan 21, 2014"} //?
+                                                ],
+                                                "style": {"color": "#1f77b4"},
+                                                "esfilter": {"terms": {"cf_feature_b2g": ["2.2"]}}
+                                        },
                                         {"name": "Other", "style": {"color": "#9467bd"}, "esfilter": {"and": [
-                                                {"not": {"terms": {"cf_blocking_b2g": ["2.0", "2.1"]}}}
+                                                {"not": {"terms": {"cf_feature_b2g": ["2.0", "2.1", "2.2"]}}}
                                         ]}}
                                 ]
                         },
@@ -433,6 +451,15 @@ Dimension.addEdges(true, Mozilla, [
                                                 ],
                                                 "style": {"color": "#1f77b4"},
                                                 "esfilter": {"terms": {"cf_blocking_b2g": "2.1+"}}
+                                        },
+					{"name": "2.2",
+                                                "dateMarks":[
+                                                        {"FC":"Nov 21, 2014"},//?
+                                                        {"SC":"Dec 13, 2014"},//?
+                                                        {"CF":"Jan 21, 2015"}//?
+                                                ],
+                                                "style": {"color": "#1f77b4"},
+                                                "esfilter": {"terms": {"cf_blocking_b2g": "2.2+"}}
                                         },
 					{"name": "Targeted",
 						"style": {"color": "#9467bd", "visibility":"hidden"},
