@@ -84,5 +84,6 @@ var OWNERS = {
   "Widget: Gonk": "",
   "Wifi": "Gerry Chang", // Firefox OS
   // "WMF": "?" // Firefox OS
-  "SystemPlatform": "Gerry Chang"
+  "SystemPlatform": "Gerry Chang",
+  "OTA": "Gerry Chang"
 };
