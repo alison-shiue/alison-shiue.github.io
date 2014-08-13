@@ -43,7 +43,7 @@ var OWNERS = {
   "Gaia::Notes": "",
   // "Gaia::PDF Viewer": "?",
   // "Gaia::PerformanceTest": "?",
-  "Gaia::Ringtones": "",
+  "Gaia::Ringtones": "Alison Shiue",
   "Gaia::Search": "",
   "Gaia::Settings": "*",
   "Gaia::SMS": "Eric Chang",
