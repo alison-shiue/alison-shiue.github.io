@@ -67,6 +67,7 @@ function addTeamClickers(cube) {
 
 // FORMAT THE THREE DIMENSIONAL CUBE TO A HIERARCHICAL GRID
 function cube2grid(param) {
+	console.log("aliosn");
 	var cube = param.cube;
 	var teamEdge = cube.getEdge(param.rows[0]);
 	var projectEdge = cube.getEdge(param.columns[0]);

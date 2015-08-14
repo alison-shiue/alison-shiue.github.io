@@ -10,6 +10,7 @@ Qb.cube = {};
 
 
 Qb.cube.newInstance = function(edges, depth, select){
+	//if (edges[depth].domain.partitions[0].name == "[com=nfc]") {
 	if (depth == edges.length){
 		var element={};
 //		var element=[]
@@ -29,11 +30,13 @@ Qb.cube.newInstance = function(edges, depth, select){
 	for(; p < edges[depth].domain.partitions.length; p++){
 		data[p] = Qb.cube.newInstance(edges, depth + 1, select);
 	}//for
+
 //	if (edges[depth].domain.partitions.length==0 || edges[depth].allowNulls){
 	if (edges[depth].allowNulls){
 		data[p]= Qb.cube.newInstance(edges, depth + 1, select);
 	}//endif
 	return data;
+	//}
 };//method
 
 //MAKE THE MAP ARRAY FROM NEW TO OLD COLUMN INDICIES

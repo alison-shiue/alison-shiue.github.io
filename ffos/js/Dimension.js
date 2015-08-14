@@ -25,7 +25,6 @@ Dimension.prototype = {
 
 		var self = this;
 		var partitions = null;
-
 		if (!this.partitions && this.edges) {
 			//USE EACH EDGE AS A PARTITION, BUT isFacet==true SO IT ALLOWS THE OVERLAP
 			partitions = this.edges.map(function (v, i) {
@@ -305,7 +304,6 @@ Dimension.prototype = {
 
 //			dim.isFacet=true;		//FORCE TO BE A FACET IN ES QUERIES
 			if (dim.type === undefined) dim.type = "set";
-
 			//ADD CONVENIENCE METHODS
 			Map.copy(Dimension.prototype, dim);
 		}

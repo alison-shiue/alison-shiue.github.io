@@ -15,12 +15,32 @@ importScript("Qb.js");
 importScript("../rest/ElasticSearch.js");
 importScript("../rest/Rest.js");
 
-
+importScript("../b2g/owners.js");
 
 var ESQuery = function(query){
 	this.query = query;
 	this.compile();
 };
+
+//ESQuery.test = {"name": "alison", "esfilter":{ "and": [
+//                                        {"regexp":{"cf_qa_whiteboard":".*COM=" + "alison" + ".*"}}
+//                                ]}};
+
+ESQuery.test = function(){
+     
+      var a = [];
+      var data = {"name":"Team", "isFacet": true, "partitions": [
+
+      ]};
+      for (var i = 0; i < Object.keys(OWNERS).length; i++) {
+         data.partitions.push({"name": Object.keys(OWNERS)[i], "esfilter":{ "and": [ {"regexp":{"cf_qa_whiteboard":".*COM=" + Object.keys(OWNERS)[i] + ".*"}}]}});
+//         a[1]= {"name": Object.keys(OWNERS)[1], "esfilter":{ "and": [ {"regexp":{"cf_qa_whiteboard":".*COM=" + Object.keys(OWNERS)[1] + ".*"}}]}};
+         
+      }
+
+     return data;
+
+};                               
 
 
 ESQuery.TrueFilter = {"match_all":{}};
@@ -757,6 +777,7 @@ ESQuery.buildCondition = function(edge, partition, query){
 				output.term = Map.newInstance(edge.value, partition.value);
 			}else{
 				output.term = Map.newInstance(edge.value, edge.domain.getKey(partition));
+
 			}//endif
 		} else if (edge.domain.type=="default"){
 			output.term = {};
