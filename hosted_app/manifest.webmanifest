@@ -1,0 +1,10 @@
+{
+   "lang": "en",
+   "name": "My App",
+   "short_name": "App",
+   "start_url": "/tests_html/nfc_write_tag.html"
+   "scope": "/tests_html/",
+   "display": "standalone",
+   "orientation": "portrait",
+   "theme_color": "blue"
+ }
