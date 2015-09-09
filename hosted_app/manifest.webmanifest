@@ -2,6 +2,11 @@
    "lang": "en",
    "name": "My App",
    "short_name": "App",
+   "icons": [{
+       "src": "/style/icons/NFC.png",
+       "sizes": "128x128",
+       "type": "image/png"
+   }],
    "start_url": "/hosted_app/tests_html/nfc_write_tag.html"
    "scope": "/hosted_app/tests_html/",
    "display": "standalone",
