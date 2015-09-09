@@ -7,8 +7,8 @@
        "sizes": "128x128",
        "type": "image/png"
    }],
-   "start_url": "/hosted_app/tests_html/nfc_write_tag.html"
-   "scope": "/hosted_app/tests_html/",
+   "start_url": "/hosted_app/index.html"
+   "scope": "/hosted_app",
    "display": "standalone",
    "orientation": "portrait",
    "theme_color": "blue"
