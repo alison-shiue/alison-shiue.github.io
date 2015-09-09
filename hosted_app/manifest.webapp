@@ -1,6 +1,6 @@
 {
   "name": "NFC API tests",
-  "launch_path": "/index.html",
+  "launch_path": "index.html",
   "developer": {
     "name": "The TW QA Team",
     "url": "https://github.com/Mozilla-TWQA",
