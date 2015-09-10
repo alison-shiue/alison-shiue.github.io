@@ -1,9 +1,9 @@
 {
    "lang": "en",
-   "name": "My App",
-   "short_name": "App",
+   "name": "Test Pin the Web",
+   "short_name": "PinPin",
    "icons": [{
-       "src": "/style/icons/NFC.png",
+       "src": "/hosted_app/style/icons/NFC.png",
        "sizes": "128x128",
        "type": "image/png"
    }],
