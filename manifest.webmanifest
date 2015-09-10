@@ -1,0 +1,15 @@
+{
+   "lang": "en",
+   "name": "Test Pin the Web",
+   "short_name": "PinPin",
+   "icons": [{
+       "src": "/icon_type/33x33_bird.png",
+       "sizes": "128x128",
+       "type": "image/png"
+   }],
+   "start_url": "/icon_type/no_title.html"
+   "scope": "/icon_type",
+   "display": "standalone",
+   "orientation": "portrait",
+   "theme_color": "blue"
+ }
