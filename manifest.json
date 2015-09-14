@@ -1,11 +1,36 @@
 {
    "name": "Test Pin the Web",
    "icons": [
-     {
-       "src": "icons/70x70_dog.png",
-       "sizes": "70x70",
-       "type": "image/png"
-     }
+       {
+           "src": "icons/33x33_bird.png",
+           "sizes": "33x33",
+           "type": "image/png"
+       },
+       {
+           "src": "icons/40x40_cat.png",
+           "sizes": "40x40",
+           "type": "image/png"
+       },
+       {
+           "src": "icons/65x65_rabbit.png",
+           "sizes": "65x65",
+           "type": "image/png"
+       },
+       {
+           "src": "icons/68x68_fish.png",
+           "sizes": "68x68",
+           "type": "image/png"
+       },
+       {
+           "src": "icons/70x70_dog.png",
+           "sizes": "70x70",
+           "type": "image/png"
+       },
+       {
+           "src": "icons/90x90_bear.png",
+           "sizes": "90x90",
+           "type": "image/png"
+       }
    ],
    "start_url": "multiple_icons.html",
    "display": "standalone",
