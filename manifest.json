@@ -32,7 +32,8 @@
            "type": "image/png"
        }
    ],
-   "start_url": "multiple_icons.html",
+   "start_url": "with_manifest/start_url.html",
+   "scope": "with_manifest/",
    "display": "standalone",
    "orientation": "landscape"
  }
