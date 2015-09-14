@@ -32,8 +32,8 @@
            "type": "image/png"
        }
    ],
-   "start_url": "with_manifest/start_url.html",
-   "scope":"with_manifest/",
+   "start_url": "http://alison-shiue.github.io/with_manifest/start_url.html",
+   "scope":"http://alison-shiue.github.io/with_manifest/",
    "display": "browser",
    "orientation": "landscape"
  }
