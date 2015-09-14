@@ -33,6 +33,7 @@
        }
    ],
    "start_url": "with_manifest/start_url.html",
+   "scope":"with_manifest/",
    "display": "browser",
    "orientation": "landscape"
  }
