@@ -38,8 +38,8 @@
 	"density": 4.0
     }
     ],
-   "start_url": "/alison-shiue.github.io/with_manifest/start_url.html",
-   "scope":"/alison-shiue.github.io/with_manifest/",
+   "start_url": "with_manifest/start_url.html",
+   "scope":"with_manifest/",
    "display": "browser",
    "orientation": "landscape"
  }
