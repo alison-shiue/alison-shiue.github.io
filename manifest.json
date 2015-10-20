@@ -30,6 +30,11 @@
            "src": "/icons/90x90_bear.png",
            "sizes": "90x90",
            "type": "image/png"
+       },
+       {
+           "src": "/icons/150x150_elephant.png",
+           "sizes": "150x150",
+           "type": "image/png"
        }
    ],
    "start_url": "/with_manifest/start_url.html",
